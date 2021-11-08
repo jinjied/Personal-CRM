@@ -8,28 +8,28 @@ const router = new VueRouter({
     mode: "history",
     base: process.env.BASE_URL,
     routes: [{
+            path: "/login",
+            name: "Login",
+            hideInMenu: true,
+            meta: { icon: "login", title: "Login", isLogin: false },
+            component: () =>
+                import ("../views/Login.vue"),
+        },
+        {
+            path: "/register",
+            name: "Register",
+            hideInMenu: true,
+            meta: { icon: "Register", title: "Register", isLogin: false },
+            component: () =>
+                import ("../views/Register.vue"),
+        },
+        {
             path: "/",
             component: () =>
                 import ("../layouts/BasicLayout.vue"),
             children: [{
                     path: "/",
                     redirect: "/login",
-                },
-                {
-                    path: "/login",
-                    name: "Login",
-                    hideInMenu: true,
-                    meta: { icon: "login", title: "Login", isLogin: false },
-                    component: () =>
-                        import ("../views/Login.vue"),
-                },
-                {
-                    path: "/register",
-                    name: "Register",
-                    hideInMenu: true,
-                    meta: { icon: "Register", title: "Register", isLogin: false },
-                    component: () =>
-                        import ("../views/Register.vue"),
                 },
                 {
                     path: "/dashboard",
